@@ -17,7 +17,8 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
-      "semicolons": "asNeeded"
+      "semicolons": "asNeeded",
+      "indentWidth": 2
     }
   },
   "linter": {

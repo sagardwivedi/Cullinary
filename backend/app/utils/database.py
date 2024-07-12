@@ -10,13 +10,17 @@ def get_user_by_email(*, session: Session, email: str) -> User | None:
 
 
 def get_user_by_username(*, session: Session, username: str) -> User | None:
-    statement = select(User).where(User.username == username)
+    statement = select(User).where(User.username == f"@{username}")
     return session.exec(statement).first()
 
 
 def create_user(*, session: Session, user_in: UserCreate) -> User:
     db_obj = User.model_validate(
-        user_in, update={"hashed_password": hash_password(user_in.password)}
+        user_in,
+        update={
+            "hashed_password": hash_password(user_in.password),
+            "username": f"@{user_in.username}",
+        },
     )
     session.add(db_obj)
     session.commit()

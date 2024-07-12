@@ -1,3 +1,4 @@
+import { buttonVariants } from "@/components/ui/button"
 import { Link, Outlet, createRootRoute } from "@tanstack/react-router"
 import { Suspense, lazy } from "react"
 
@@ -20,21 +21,30 @@ const TanStackDevtools =
   process.env.NODE_ENV === "production" ? () => null : lazy(loadDevtools)
 
 export const Route = createRootRoute({
-  component: () => (
-    <>
-      <div className="p-2 flex gap-2">
-        <Link to="/" className="[&.active]:font-bold">
-          Home
+  component: Root,
+})
+
+function Root() {
+  return (
+    <div className="antialiased">
+      <div className="p-6 flex gap-2 justify-end">
+        <Link to="/auth/login" className={buttonVariants()}>
+          Log In
         </Link>{" "}
-        <Link to="/" className="[&.active]:font-bold">
-          About
+        <Link
+          to="/auth/signup"
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Sign Up
         </Link>
       </div>
       <hr />
-      <Outlet />
+      <div className="h-[calc(100vh_-_89px)]">
+        <Outlet />
+      </div>
       <Suspense>
         <TanStackDevtools />
       </Suspense>
-    </>
-  ),
-})
+    </div>
+  )
+}
