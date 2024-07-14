@@ -7,9 +7,7 @@
   "paths": {
     "/api/v1/auth/register": {
       "post": {
-        "tags": [
-          "auth"
-        ],
+        "tags": ["auth"],
         "summary": "Register User",
         "description": "Register a new user.\n\nParameters:\n- session: Database session dependency.\n- user_in: User input data for registration.\n\nReturns:\n- The newly created user data as `UserPublic`.\n\nRaises:\n- HTTPException: If email or username is already registered.",
         "operationId": "register_user",
@@ -49,9 +47,7 @@
     },
     "/api/v1/auth/login/access-token": {
       "post": {
-        "tags": [
-          "auth"
-        ],
+        "tags": ["auth"],
         "summary": "Login Access Token",
         "description": "Login user and return an access token.\n\nParameters:\n- session: Database session dependency.\n- form_data: User input data for login.\n\nReturns:\n- Access token for the authenticated user.\n\nRaises:\n- HTTPException: If authentication fails.",
         "operationId": "login_access_token",
@@ -91,9 +87,7 @@
     },
     "/api/v1/auth/me": {
       "get": {
-        "tags": [
-          "auth"
-        ],
+        "tags": ["auth"],
         "summary": "Read User Me",
         "operationId": "read_user_me",
         "responses": {
@@ -169,10 +163,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "username",
-          "password"
-        ],
+        "required": ["username", "password"],
         "title": "Body_auth-login_access_token"
       },
       "HTTPValidationError": {
@@ -201,9 +192,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "access_token"
-        ],
+        "required": ["access_token"],
         "title": "Token"
       },
       "UserCreate": {
@@ -224,11 +213,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "email",
-          "username",
-          "password"
-        ],
+        "required": ["email", "username", "password"],
         "title": "UserCreate"
       },
       "UserPublic": {
@@ -249,11 +234,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "email",
-          "username",
-          "id"
-        ],
+        "required": ["email", "username", "id"],
         "title": "UserPublic"
       },
       "ValidationError": {
@@ -282,11 +263,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
+        "required": ["loc", "msg", "type"],
         "title": "ValidationError"
       }
     },

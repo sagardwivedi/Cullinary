@@ -1,5 +1,5 @@
 {
-  "name": "cullinary-frontend",
+  "name": "frontend",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -7,15 +7,14 @@
     "check": "biome check --write",
     "dev": "rsbuild dev --open",
     "format": "biome format --write",
-    "preview": "rsbuild preview",
-    "openapi-ts": "openapi-ts"
+    "preview": "rsbuild preview"
   },
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@hey-api/client-fetch": "^0.1.8",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-query": "^5.51.1",
-    "@tanstack/react-router": "^1.44.4",
+    "@tanstack/react-router": "^1.45.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.408.0",
@@ -28,15 +27,15 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@hey-api/openapi-ts": "^0.48.2",
-    "@rsbuild/core": "1.0.1-beta.0",
-    "@rsbuild/plugin-react": "1.0.1-beta.0",
+    "@rsbuild/core": "1.0.1-beta.1",
+    "@rsbuild/plugin-react": "1.0.1-beta.1",
     "@rsdoctor/rspack-plugin": "^0.3.7",
     "@tanstack/react-query-devtools": "^5.51.1",
-    "@tanstack/router-devtools": "^1.44.4",
-    "@tanstack/router-plugin": "^1.44.3",
+    "@tanstack/router-devtools": "^1.45.1",
+    "@tanstack/router-plugin": "^1.45.0",
+    "@types/node": "20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "node-fetch": "3.3.2",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.3"
   },

@@ -1,6 +1,7 @@
-import { buttonVariants } from "@/components/ui/button"
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router"
-import { Suspense, lazy } from "react"
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Suspense, lazy } from "react";
+
+import { NotFound } from "@/components/common/NotFound";
 
 const loadDevtools = () =>
   Promise.all([
@@ -14,37 +15,22 @@ const loadDevtools = () =>
           <reactQueryDevtools.ReactQueryDevtools />
         </>
       ),
-    }
-  })
+    };
+  });
 
 const TanStackDevtools =
-  process.env.NODE_ENV === "production" ? () => null : lazy(loadDevtools)
+  process.env.NODE_ENV === "production" ? () => null : lazy(loadDevtools);
 
 export const Route = createRootRoute({
-  component: Root,
-})
-
-function Root() {
-  return (
-    <div className="antialiased">
-      <div className="p-6 flex gap-2 justify-end">
-        <Link to="/auth/login" className={buttonVariants()}>
-          Log In
-        </Link>{" "}
-        <Link
-          to="/auth/signup"
-          className={buttonVariants({ variant: "outline" })}
-        >
-          Sign Up
-        </Link>
-      </div>
-      <hr />
-      <div className="h-[calc(100vh_-_89px)]">
+  component: () => (
+    <>
+      <div className="antialiased">
         <Outlet />
       </div>
       <Suspense>
         <TanStackDevtools />
       </Suspense>
-    </div>
-  )
-}
+    </>
+  ),
+  notFoundComponent: () => <NotFound />,
+});

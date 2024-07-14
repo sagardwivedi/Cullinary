@@ -53,7 +53,7 @@ export const $Body_auth_login_access_token = {
   type: "object",
   required: ["username", "password"],
   title: "Body_auth-login_access_token",
-} as const
+} as const;
 
 export const $HTTPValidationError = {
   properties: {
@@ -67,7 +67,7 @@ export const $HTTPValidationError = {
   },
   type: "object",
   title: "HTTPValidationError",
-} as const
+} as const;
 
 export const $Token = {
   properties: {
@@ -84,7 +84,7 @@ export const $Token = {
   type: "object",
   required: ["access_token"],
   title: "Token",
-} as const
+} as const;
 
 export const $UserCreate = {
   properties: {
@@ -106,7 +106,7 @@ export const $UserCreate = {
   type: "object",
   required: ["email", "username", "password"],
   title: "UserCreate",
-} as const
+} as const;
 
 export const $UserPublic = {
   properties: {
@@ -128,7 +128,7 @@ export const $UserPublic = {
   type: "object",
   required: ["email", "username", "id"],
   title: "UserPublic",
-} as const
+} as const;
 
 export const $ValidationError = {
   properties: {
@@ -158,4 +158,4 @@ export const $ValidationError = {
   type: "object",
   required: ["loc", "msg", "type"],
   title: "ValidationError",
-} as const
+} as const;

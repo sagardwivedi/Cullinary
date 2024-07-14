@@ -3,9 +3,6 @@
   "organizeImports": {
     "enabled": true
   },
-  "files": {
-    "ignore": ["node_modules", "src/routeTree.gen.ts"]
-  },
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -16,22 +13,13 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double",
-      "semicolons": "asNeeded",
-      "indentWidth": 2
+      "quoteStyle": "double"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "suspicious": {
-        "noExplicitAny": "off",
-        "noArrayIndexKey": "off"
-      },
-      "style": {
-        "noNonNullAssertion": "off"
-      }
+      "recommended": true
     }
   }
 }
