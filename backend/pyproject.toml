@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = "^0.111.0"
+fastapi = "^0.111.1"
 sqlmodel = "^0.0.19"
 pyjwt = "^2.8.0"
 passlib = {extras = ["bcyrpt"], version = "^1.7.4"}
@@ -16,7 +16,7 @@ pydantic-settings = "^2.3.4"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.10.1"
-ruff = "^0.5.1"
+ruff = "^0.5.2"
 
 [build-system]
 requires = ["poetry-core"]
