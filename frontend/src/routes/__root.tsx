@@ -1,6 +1,8 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { Suspense, lazy } from "react";
 
+import { Footer } from "@/components/common/Footer";
+import { Header } from "@/components/common/Header";
 import { NotFound } from "@/components/common/NotFound";
 
 const loadDevtools = () =>
@@ -24,8 +26,10 @@ const TanStackDevtools =
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="antialiased">
+      <div className="flex flex-col antialiased min-h-dvh">
+        <Header />
         <Outlet />
+        <Footer />
       </div>
       <Suspense>
         <TanStackDevtools />

@@ -1,14 +1,14 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, createLazyFileRoute } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export const Route = createFileRoute("/auth/login")({
-  component: LoginPage,
+export const Route = createLazyFileRoute("/auth/signup")({
+  component: SignupPage,
 });
 
-function LoginPage() {
+export default function SignupPage() {
   return (
     <main className="flex-1">
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
@@ -16,13 +16,17 @@ function LoginPage() {
           <div className="mx-auto max-w-md space-y-6">
             <div className="text-center">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Login
+                Sign Up
               </h1>
               <p className="text-muted-foreground">
-                Welcome back to Culinary, please login to continue.
+                Create your Culinary account to get started.
               </p>
             </div>
             <form className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" placeholder="JohnDoe" required />
+              </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -42,13 +46,13 @@ function LoginPage() {
                 />
               </div>
               <Button type="submit" className="w-full">
-                Login
+                Sign Up
               </Button>
             </form>
             <div className="text-center text-sm text-muted-foreground">
-              Don't have an account?{" "}
-              <Link to="/auth/signup" className="underline">
-                Sign up
+              Already have an account?{" "}
+              <Link to="/auth/login" className="underline">
+                Log in
               </Link>
             </div>
           </div>
