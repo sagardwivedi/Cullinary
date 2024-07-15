@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -7,10 +7,10 @@ export function Footer() {
         &copy; 2024 Culinary. All rights reserved.
       </div>
       <div className="flex gap-4">
-        <Link href="#" className="text-sm hover:underline">
+        <Link to={"#"} className="text-sm hover:underline">
           Terms of Service
         </Link>
-        <Link href="#" className="text-sm hover:underline">
+        <Link to={"#"} className="text-sm hover:underline">
           Privacy Policy
         </Link>
       </div>

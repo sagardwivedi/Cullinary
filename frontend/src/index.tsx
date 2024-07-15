@@ -1,32 +1,47 @@
-import { createClient } from "@hey-api/client-fetch";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { routeTree } from "./routeTree.gen";
 import "@/index.css";
+import { OpenAPI } from "./client";
+import { RequiredAuth } from "./components/common/RequiredAuth";
+import ErrorPage from "./components/common/error-page";
+import HomePage from "./routes";
+import LoginPage from "./routes/auth/login";
+import SignupPage from "./routes/auth/signup";
+import UserPage from "./routes/userId";
 
-const key = localStorage.getItem("access-token") || "";
-
-createClient({
-  baseUrl: "http://localhost:8000",
-  headers: {
-    Authorization: `Bearer ${key}`,
-  },
-});
-
+OpenAPI.BASE = "http://localhost:8000";
+OpenAPI.TOKEN = async () => {
+  return localStorage.getItem("access_token") || "";
+};
 // Create a new router instance
-const router = createRouter({ routeTree });
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/auth/signup",
+    element: <SignupPage />,
+  },
+  {
+    path: "/auth/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/:userId",
+    element: (
+      <RequiredAuth>
+        <UserPage />
+      </RequiredAuth>
+    ),
+  },
+]);
 
 const queryClient = new QueryClient();
-
-// Register the router instance for type safety
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
 
 const rootEl = document.getElementById("root");
 if (rootEl) {

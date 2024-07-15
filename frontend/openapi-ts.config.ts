@@ -7,6 +7,6 @@ export default defineConfig({
     format: "biome",
     lint: "biome",
   },
-  client: "@hey-api/client-fetch",
+  client: "axios",
   debug: true,
 });

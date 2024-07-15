@@ -37,24 +37,18 @@ export type ValidationError = {
 };
 
 export type RegisterUserData = {
-  body: UserCreate;
+  requestBody: UserCreate;
 };
 
 export type RegisterUserResponse = UserPublic;
 
-export type RegisterUserError = HTTPValidationError;
-
 export type LoginAccessTokenData = {
-  body: Body_auth_login_access_token;
+  formData: Body_auth_login_access_token;
 };
 
 export type LoginAccessTokenResponse = Token;
 
-export type LoginAccessTokenError = HTTPValidationError;
-
 export type ReadUserMeResponse = UserPublic;
-
-export type ReadUserMeError = unknown;
 
 export type $OpenApiTs = {
   "/api/v1/auth/register": {
@@ -64,11 +58,11 @@ export type $OpenApiTs = {
         /**
          * Successful Response
          */
-        "200": UserPublic;
+        200: UserPublic;
         /**
          * Validation Error
          */
-        "422": HTTPValidationError;
+        422: HTTPValidationError;
       };
     };
   };
@@ -79,11 +73,11 @@ export type $OpenApiTs = {
         /**
          * Successful Response
          */
-        "200": Token;
+        200: Token;
         /**
          * Validation Error
          */
-        "422": HTTPValidationError;
+        422: HTTPValidationError;
       };
     };
   };
@@ -93,7 +87,7 @@ export type $OpenApiTs = {
         /**
          * Successful Response
          */
-        "200": UserPublic;
+        200: UserPublic;
       };
     };
   };
